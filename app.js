@@ -3,7 +3,11 @@ var model = {
 	currentCat: null,
 
 	init: function(data) {
-    	this.catList = data.results.map(function(item){
+		let images = data.results.filter(item => item.description != null);
+		if(images.length > 10){
+			images = images.slice(0,10);
+		}
+    	this.catList = images.map(function(item){
     		var obj = {
     			url: item.urls.regular,
     			caption: item.description,
@@ -24,6 +28,14 @@ var model = {
 
 	getClickCount: function() {
 		return this.currentCat.count;
+	},
+
+	updateCaption: function(caption) {
+		this.currentCat.caption = caption;
+	},
+
+	getCurrentCatIndex: function(){
+		return this.catList.indexOf(this.currentCat);
 	}
 };
 
@@ -31,7 +43,7 @@ var model = {
 var octopus = {
 	init: function(argument) {
 
-		const queryUnsplash = `https://api.unsplash.com/search/photos?orientation=landscape&query=cat`;
+		const queryUnsplash = `https://api.unsplash.com/search/photos?orientation=landscape&query=cat&per_page=30&page=2`;
     	const apiKeyUnsplash = `022c9f35d65246727ff3ac0d6441de5654d9e5a12215e9e179a1ba47d31ea792`;
 
      	catDisplayView.init();
@@ -51,10 +63,7 @@ var octopus = {
 			catListView.init(model.catList);
         });
 
-		function createCatList() {
-			model.init(JSON.parse(this.responseText));
-		}
-
+        this.captionFormIsOpen = false;
 	},
 
 	handleCatClick: function() {
@@ -65,20 +74,58 @@ var octopus = {
 	handleCatSelect: function(cat) {
 		model.updateCurrentCat(cat);
 		catDisplayView.render(model.currentCat);
+		if(this.captionFormIsOpen){
+			this.closeForm();
+		}
+	},
+
+	openForm:function() {
+		catDisplayView.captionForm['caption'].size = model.currentCat.caption.length;
+		catDisplayView.captionForm['caption'].value = model.currentCat.caption;
+		catDisplayView.toggleCaptionForm();
+		catDisplayView.changeCaptionButton.classList.add('hide');
+		this.captionFormIsOpen = true;
+	},
+
+	updateCaption: function(caption) {
+		model.updateCaption(caption);
+		catDisplayView.render(model.currentCat);
+		catDisplayView.toggleCaptionForm();
+		catListView.update(caption, model.getCurrentCatIndex());
+	},
+
+	closeForm: function() {
+		catDisplayView.toggleCaptionForm();
+		this.captionFormIsOpen = false;
 	}
 
 };
 
 var catDisplayView = {
 	init: function() {
-		this.catDisplay = document.getElementById('catDisplay');
-		catDisplay.addEventListener('click', function(event) {
+		this.catImg = document.getElementById('catImg');
+		this.catImg.addEventListener('click', function(event) {
 			event.preventDefault();
 			octopus.handleCatClick();
 		});
-		this.catImg = document.getElementById('catImg');
+
 		this.catText = document.getElementById('catText');
 		this.clickCount = document.getElementById('clickCount');
+
+		this.changeCaptionButton = document.getElementById('changeCaption');
+		this.changeCaptionButton.addEventListener('click', function(event){
+			octopus.openForm();
+		});
+
+		this.captionForm = document.getElementById('captionForm');
+		this.captionForm.addEventListener('submit', function(event){
+			event.preventDefault(); //to prevent restting page after form submit
+			octopus.updateCaption(event.target['caption'].value);
+		});
+		this.captionForm.addEventListener('reset', function(event){
+			octopus.closeForm();
+		});
+
 	},
 
 	render: function(cat) {
@@ -88,7 +135,12 @@ var catDisplayView = {
 	},
 
 	renderClickCount: function(clickCountfromModel) {
-		this.clickCount.innerText = clickCountfromModel;
+		this.clickCount.innerHTML = `<span id="cc">Click Count: </span>${clickCountfromModel}`;
+	},
+
+	toggleCaptionForm: function() {
+		this.captionForm.classList.toggle('hide');
+		catDisplayView.changeCaptionButton.classList.remove('hide');
 	}
 
 };
@@ -111,8 +163,9 @@ var catListView ={
 		this.catListMenu.appendChild(fragment);
 	},
 
-	render: function(argument) {
-		// needed for admin control
+	update: function(caption,n) {
+		let listItem = this.catListMenu.children.item(n);
+		listItem.innerText = caption;
 	}
 };
 
