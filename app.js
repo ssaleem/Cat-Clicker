@@ -5,7 +5,7 @@ var model = {
 	init: function(data) {
     	this.catList = data.results.map(function(item){
     		var obj = {
-    			url: item.urls.small,
+    			url: item.urls.regular,
     			caption: item.description,
     			count: 0
     		};

@@ -1,0 +1,64 @@
+body {
+	box-sizing: border-box;
+	padding: 6px;
+	padding-top: 0px;
+	font-family: 'Raleway', sans-serif;
+}
+
+h1 {
+	text-align: center;
+	font-family: 'Indie Flower', cursive;
+	font-size: 40px;
+}
+
+.container {
+	display: flex;
+	padding: 4px;
+}
+
+#catDisplay {
+	width: 68%;
+	display: flex;
+	flex-wrap: wrap;
+	text-align: center;
+}
+
+figure {
+	width: 100%;
+	padding: 0px 28px;
+	margin-bottom: 0px;
+}
+
+
+#catImg {
+	max-width: 100%;
+	height: auto;
+	border-radius: 4px;
+}
+
+#clickCount {
+	width: 100%;
+	padding: 0px;
+	margin: 4px;
+	text-align: center;
+}
+
+#catListMenu {
+	width: 32%;
+	padding: 0px 28px;
+}
+
+#catListMenu li {
+	list-style: none;
+	height: 8%;
+	margin: 3px;
+	padding: 4px;
+	border: solid 1px #959AA2FF;
+	border-radius: 2px;
+}
+
+#catListMenu li:hover, #catImg:hover {
+	cursor: pointer;
+	box-shadow: 2px 2px 4px #A3A7A7FF;
+
+}
