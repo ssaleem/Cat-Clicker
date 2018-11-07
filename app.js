@@ -69,6 +69,7 @@ var octopus = {
 	handleCatClick: function() {
 		model.updateClickCount();
 		catDisplayView.renderClickCount(model.getClickCount());
+		catListView.update(model.currentCat, model.getCurrentCatIndex());
 	},
 
 	handleCatSelect: function(cat) {
@@ -91,7 +92,7 @@ var octopus = {
 		model.updateCaption(caption);
 		catDisplayView.render(model.currentCat);
 		catDisplayView.toggleCaptionForm();
-		catListView.update(caption, model.getCurrentCatIndex());
+		catListView.update(model.currentCat, model.getCurrentCatIndex());
 	},
 
 	closeForm: function() {
@@ -152,7 +153,7 @@ var catListView ={
 		const fragment = document.createDocumentFragment();
 		for(const cat of catList){
 			const newItem = document.createElement(`li`);
-			newItem.innerText = cat.caption;
+			newItem.innerHTML = `<div class="caption">${cat.caption}</div><div class="caption-heart">&hearts; ${cat.count}</div>`;
 			newItem.addEventListener('click', (function(cat){
 				return function(event) {
 					octopus.handleCatSelect(cat);
@@ -163,9 +164,9 @@ var catListView ={
 		this.catListMenu.appendChild(fragment);
 	},
 
-	update: function(caption,n) {
+	update: function(currCat,n) {
 		let listItem = this.catListMenu.children.item(n);
-		listItem.innerText = caption;
+		listItem.innerHTML = `<div class="caption">${currCat.caption}</div><div class="caption-heart">&hearts; ${currCat.count}</div>`;
 	}
 };
 

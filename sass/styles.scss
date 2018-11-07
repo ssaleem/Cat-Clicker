@@ -16,11 +16,11 @@ h1 {
 
 .container {
 	display: flex;
-	padding: 4px;
+	padding: 16px;
 }
 
 #catDisplay {
-	width: 65%;
+	width: 60%;
 	display: flex;
 	flex-wrap: wrap;
 	text-align: center;
@@ -28,7 +28,7 @@ h1 {
 
 figure {
 	width: 100%;
-	padding: 0px 28px;
+	padding: 0px;
 	margin-bottom: 0px;
 }
 
@@ -70,8 +70,8 @@ figure {
 }
 
 #catListMenu {
-	width: 35%;
-	padding: 0px 28px;
+	width: 40%;
+	padding: 0px 10px;
 	display: flex;
 	flex-direction: column;
 }
@@ -85,13 +85,26 @@ figure {
 	border: solid 1px $background;
 	border-radius: 2px;
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
+	// flex-direction: column;
+	vertical-align: middle;
 }
 
 #cc {
 	font-weight: bolder;
 }
+
+.caption {
+	width: 85%;
+}
+
+.caption-heart {
+	width: 15%;
+	text-align: right;
+	padding-right: 6px;
+	color: $background;
+	font-size: 1.2em;
+}
+
 #catListMenu li:hover, #catImg:hover, #changeCaption:hover {
 	cursor: pointer;
 	box-shadow: 2px 2px 4px #A3A7A7FF;
