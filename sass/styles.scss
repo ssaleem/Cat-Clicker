@@ -2,8 +2,6 @@ $background: #959AA2FF;
 
 body {
 	box-sizing: border-box;
-	padding: 6px;
-	padding-top: 0px;
 	font-family: 'Raleway', sans-serif;
 }
 
@@ -37,6 +35,11 @@ figure {
 	max-width: 100%;
 	height: auto;
 	border-radius: 4px;
+}
+
+#catImg:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(3px);
 }
 
 #clickCount {
@@ -82,10 +85,8 @@ figure {
 	flex-shrink: 1;
 	flex-basis: auto;
 	padding: 8px;
-	border: solid 1px $background;
-	border-radius: 2px;
+	border-bottom: solid 1px $background;
 	display: flex;
-	// flex-direction: column;
 	vertical-align: middle;
 }
 
