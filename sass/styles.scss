@@ -1,0 +1,92 @@
+$background: #959AA2FF;
+
+body {
+	box-sizing: border-box;
+	padding: 6px;
+	padding-top: 0px;
+	font-family: 'Raleway', sans-serif;
+}
+
+h1 {
+	text-align: center;
+	font-family: 'Indie Flower', cursive;
+	font-size: 40px;
+	margin-bottom: 0px;
+}
+
+.container {
+	display: flex;
+	padding: 4px;
+}
+
+#catDisplay {
+	width: 65%;
+	display: flex;
+	flex-wrap: wrap;
+	text-align: center;
+}
+
+figure {
+	width: 100%;
+	padding: 0px 28px;
+	margin-bottom: 0px;
+}
+
+
+#catImg {
+	max-width: 100%;
+	height: auto;
+	border-radius: 4px;
+}
+
+#clickCount {
+	width: 100%;
+	padding: 0px;
+	margin: 4px;
+	text-align: center;
+}
+
+#adminControls {
+	width: 100%;
+}
+
+#changeCaption {
+	font-family: 'Raleway', sans-serif;
+	border-radius: 4px;
+	border-style: none;
+	padding: 8px;
+	font-size: 16px;
+	font-weight: bolder;
+	background-color: $background;
+	color: white;
+}
+
+.hide {
+	display: none;
+}
+
+.show {
+	display: block;
+}
+
+#catListMenu {
+	width: 35%;
+	padding: 0px 28px;
+}
+
+#catListMenu li {
+	list-style: none;
+	/*height: 8%;*/
+	margin: 3px;
+	padding: 4px;
+	border: solid 1px $background;
+	border-radius: 2px;
+}
+
+#cc {
+	font-weight: bolder;
+}
+#catListMenu li:hover, #catImg:hover, #changeCaption:hover {
+	cursor: pointer;
+	box-shadow: 2px 2px 4px #A3A7A7FF;
+}
