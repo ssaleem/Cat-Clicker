@@ -72,15 +72,21 @@ figure {
 #catListMenu {
 	width: 35%;
 	padding: 0px 28px;
+	display: flex;
+	flex-direction: column;
 }
 
 #catListMenu li {
 	list-style: none;
-	/*height: 8%;*/
-	margin: 3px;
-	padding: 4px;
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: auto;
+	padding: 8px;
 	border: solid 1px $background;
 	border-radius: 2px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 #cc {
