@@ -1,6 +1,6 @@
 $background: #959AA2FF;
 
-body {
+*{
 	box-sizing: border-box;
 	font-family: 'Raleway', sans-serif;
 }
@@ -14,11 +14,11 @@ h1 {
 
 .container {
 	display: flex;
-	padding: 16px;
+	flex-wrap: wrap;
 }
 
 #catDisplay {
-	width: 60%;
+	width: 57%;
 	display: flex;
 	flex-wrap: wrap;
 	text-align: center;
@@ -109,4 +109,12 @@ figure {
 #catListMenu li:hover, #catImg:hover, #changeCaption:hover {
 	cursor: pointer;
 	box-shadow: 2px 2px 4px #A3A7A7FF;
+}
+
+.footer {
+	width: 100%;
+	font-size: 11px;
+	color: $background;
+	text-align: center;
+	padding: 8px;
 }
