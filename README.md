@@ -1,5 +1,7 @@
 # Cat Clicker
-As the name explains, this is a web application with some cute cat pictures fetched from [Unsplash.com]((https://unsplash.com/). A side bar gives a caption list for varoius cat images. Each caption can be clicked to see the correponding cat image. If you like a cat, you can click its image and the <span>&hearts</span> count for the cat will increase.
+As the name explains, this is a web application with some cute cat pictures fetched from [Unsplash.com](https://unsplash.com/). A side bar gives a caption list for varoius cat images. Each caption can be clicked to see the correponding cat image. If you like a cat, you can click its image and the <span>&hearts;</span> count for the cat will increase.
+
+<img src="catclicker.gif" alt="cat clicker app gif">
 
 ## MVO
 This project explores the concept of _separation of concerns_ by using **Model, View, and Octopus(MVO)**, an architectural design pattern (also known as MVC). In the context of application programming, separation of concerns means the separation of code into few fundamentally different pieces namely Model, View, and Octopus. The rationale behind using this design pattern is that _Model_ and _View_ can be organized, maintained and optimized 
@@ -41,7 +43,7 @@ Octopus is the central hub, containing logic that keeps model and view connected
 - [DocumentFragment](https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment) - Avoids multiple _reflow_ and consquently any performance impact that can occur when changes are made to DOM.
 - [CSS Flexbox](https://www.w3schools.com/css/css3_flexbox.asp) -  CSS layout module to design flexible responsive layout structure without using float or positioning.
 - [Google Fonts](https://fonts.google.com/) - A library of 900 libre licensed fonts
-- [gulp](https://www.npmjs.com/package/gulp) Plugins: browser-sync, gulp-sass, gulp-cssnano
+- [gulp](https://www.npmjs.com/package/gulp) Plugins - browser-sync, gulp-sass, gulp-cssnano
 
 ## Live Version
-Live version of this project is [here](https://ssaleem.github.io/Cat-Clicker/)
+Live version of this project can be explored [here](https://ssaleem.github.io/Cat-Clicker/).
