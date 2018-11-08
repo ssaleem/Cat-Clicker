@@ -44,9 +44,8 @@ figure {
 
 #clickCount {
 	width: 100%;
-	padding: 0px;
-	margin: 4px;
-	text-align: center;
+	padding: 4px;
+	margin: 0px;
 }
 
 #adminControls {
@@ -73,8 +72,8 @@ figure {
 }
 
 #catListMenu {
-	width: 40%;
-	padding: 0px 10px;
+	width: 43%;
+	padding-right: 24px;
 	display: flex;
 	flex-direction: column;
 }
@@ -87,7 +86,6 @@ figure {
 	padding: 8px;
 	border-bottom: solid 1px $background;
 	display: flex;
-	vertical-align: middle;
 }
 
 #cc {
@@ -96,6 +94,7 @@ figure {
 
 .caption {
 	width: 85%;
+	margin: auto;
 }
 
 .caption-heart {

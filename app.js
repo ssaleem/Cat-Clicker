@@ -154,6 +154,7 @@ var catListView ={
 		for(const cat of catList){
 			const newItem = document.createElement(`li`);
 			newItem.innerHTML = `<div class="caption">${cat.caption}</div><div class="caption-heart">&hearts; ${cat.count}</div>`;
+			//Bind event listeners to their corresponding data source using closure and iife
 			newItem.addEventListener('click', (function(cat){
 				return function(event) {
 					octopus.handleCatSelect(cat);
