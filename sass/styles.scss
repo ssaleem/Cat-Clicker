@@ -19,8 +19,7 @@ h1 {
 
 #catDisplay {
 	width: 57%;
-	display: flex;
-	flex-wrap: wrap;
+	@extend .container;
 	text-align: center;
 }
 
